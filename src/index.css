@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes draw-outline {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fill-in {
+    from {
+      fill-opacity: 0;
+    }
+    to {
+      fill-opacity: 1;
+    }
+  }
+
+  .logo-svg {
+    transform-origin: 50% 50%;
+  }
+
+  .logo-path,
+  .top-arrow {
+    stroke-width: 1.5;
+    fill-opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transform-box: fill-box;
+    transform-origin: center center;
+  }
+
+  /* Waiting to start: fully invisible, no flash */
+  .logo-path.pending,
+  .top-arrow.pending {
+    fill-opacity: 0;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .logo-path.playing,
+  .top-arrow.playing {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation:
+      draw-outline 2s ease-in-out forwards,
+      fill-in 0.5s ease-out 2s forwards;
+  }
+
+  .logo-path.static,
+  .top-arrow.static {
+    fill-opacity: 1;
+    stroke: none;
+  }
+}
