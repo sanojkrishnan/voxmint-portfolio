@@ -95,7 +95,7 @@ export default function ArrowLogo({
             version="1.1"
             id="svg1"
             width={size * 4}
-            maxHeight={size + 40}
+            maxHeight={size }
             viewBox="0 0 1819 501"
             xmlns="http://www.w3.org/2000/svg"
           >

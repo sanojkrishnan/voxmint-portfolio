@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import LogoTypeOne from "./LogoTypeOne";
 
-export default function FirstMountLoad() {
+export default function FirstMountLoad(onFinish) {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -18,7 +18,10 @@ export default function FirstMountLoad() {
     setMounted(true);
 
     const raf = requestAnimationFrame(() => setVisible(true));
-    const fadeTimer = setTimeout(() => setVisible(false), 5500);
+    const fadeTimer = setTimeout(() => {
+      setVisible(false);
+      onFinish();
+    }, 5500);
     const removeTimer = setTimeout(() => setMounted(false), 6000);
 
     return () => {
