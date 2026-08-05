@@ -18,8 +18,8 @@ export default function FirstMountLoad() {
     setMounted(true);
 
     const raf = requestAnimationFrame(() => setVisible(true));
-    const fadeTimer = setTimeout(() => setVisible(false), 4500);
-    const removeTimer = setTimeout(() => setMounted(false), 5000);
+    const fadeTimer = setTimeout(() => setVisible(false), 5500);
+    const removeTimer = setTimeout(() => setMounted(false), 6000);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -32,7 +32,7 @@ export default function FirstMountLoad() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-gray-900 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center dark:bg-gray-900 bg-white transition-opacity duration-500 ${
         visible ? "opacity-100" : "opacity-0"
       }`}
     >

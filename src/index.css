@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer utilities {
   @keyframes draw-outline {
     from {
@@ -54,5 +56,26 @@
   .top-arrow.static {
     fill-opacity: 1;
     stroke: none;
+  }
+}
+
+.logo-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.logo-dot.explode {
+  animation: dotExpand 0.5s forwards ease-in;
+}
+
+@keyframes dotExpand {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(10);
+  }
+  100% {
+    transform: scale(140);
   }
 }
