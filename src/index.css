@@ -48,8 +48,8 @@
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     animation:
-      draw-outline 2s ease-in-out forwards,
-      fill-in 0.5s ease-out 2s forwards;
+      draw-outline 1s ease-in-out forwards,
+      fill-in 0.5s ease-out 1s forwards;
   }
 
   .logo-path.static,
@@ -76,6 +76,6 @@
     transform: scale(10);
   }
   100% {
-    transform: scale(140);
+    transform: scale(200);
   }
 }

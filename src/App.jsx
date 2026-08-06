@@ -1,30 +1,16 @@
-import { useState } from "react";
 import FirstMountLoad from "./Components/FirstMountLoad";
 import LogoTypeOne from "./Components/LogoTypeOne";
 import ThemeToggle from "./Components/ThemeToggle";
 
 function App() {
-  const [introFinished, setIntroFinished] = useState(false);
-
   return (
     <>
-      {!introFinished && (
-        <FirstMountLoad onFinish={() => setIntroFinished(true)} />
-      )}
+      <FirstMountLoad />
 
-      <div
-        className={`w-full h-screen bg-gray-900
-          ${introFinished ? "block" : "hidden"}
-        `}
-      ></div>
-      <div
-        className={`
-          ${introFinished ? "hidden" : "block"}
-        `}
-      >
+      <div className="w-full h-screen bg-white">
         <ThemeToggle />
-
-        <LogoTypeOne size={160} animate={false} color="#3D5AA8" />
+        <LogoTypeOne size={20} animate={false} color="#3D5AA8" />
+        {/* real app content goes here */}
       </div>
     </>
   );

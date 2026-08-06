@@ -16,7 +16,7 @@ export default function ArrowLogo({
     if (animate) {
       const timer = setTimeout(() => {
         setExplodeDot(true);
-      }, 5000); // delay after logo appears
+      }, 2800); // delay after logo appears
 
       return () => clearTimeout(timer);
     }
@@ -35,7 +35,7 @@ export default function ArrowLogo({
 
     const nameTimer = setTimeout(() => {
       setShowName(true);
-    }, 2500);
+    }, 1500);
 
     return () => {
       cancelAnimationFrame(startTimer);
@@ -51,7 +51,7 @@ export default function ArrowLogo({
       <div
         className={`flex items-center justify-center
         ${playing ? "transition-transform duration-1000 ease-in-out" : ""}
-        ${playing && !showName ? "translate-x-40" : ""}
+        ${playing && !showName ? "translate-x-30" : ""}
         ${showName ? "translate-x-0" : ""}
       `}
       >
@@ -80,22 +80,22 @@ export default function ArrowLogo({
         </svg>
 
         <div
-          className={` max-w-160 text-blue-500
+          className={` w-fit text-blue-500
             ${playing ? " transition-all delay-400 duration-700 ease-in-out" : ""}
            
             ${
               showName
-                ? "opacity-100 scale-100 translate-x-0 ml-5"
-                : "opacity-0 scale-90 ml-0"
+                ? "opacity-100 scale-100 translate-x-0"
+                : "opacity-0 scale-90"
             }
           `}
         >
           <svg
-            className="overflow-visible"
+            className="overflow-visible flex items-center justify-start"
             version="1.1"
             id="svg1"
-            width={size * 4}
-            maxHeight={size }
+            width={size * 3}
+            height={size}
             viewBox="0 0 1819 501"
             xmlns="http://www.w3.org/2000/svg"
           >

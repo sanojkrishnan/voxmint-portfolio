@@ -1,28 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import LogoTypeOne from "./LogoTypeOne";
 
-export default function FirstMountLoad(onFinish) {
-  const [mounted, setMounted] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  // Computed once, before any StrictMode double-invoke of the effect
+export default function FirstMountLoad() {
   const alreadyShownRef = useRef(
     typeof window !== "undefined" &&
       sessionStorage.getItem("introShown") === "true",
   );
 
+  const [mounted, setMounted] = useState(!alreadyShownRef.current);
+  const [exiting, setExiting] = useState(false);
+  const [logoVisible, setLogoVisible] = useState(false);
+
   useEffect(() => {
     if (alreadyShownRef.current) return;
-    sessionStorage.setItem("introShown", "true"); // idempotent, safe to call twice
+    sessionStorage.setItem("introShown", "true");
 
-    setMounted(true);
-
-    const raf = requestAnimationFrame(() => setVisible(true));
-    const fadeTimer = setTimeout(() => {
-      setVisible(false);
-      onFinish();
-    }, 5500);
-    const removeTimer = setTimeout(() => setMounted(false), 6000);
+    const raf = requestAnimationFrame(() => setLogoVisible(true));
+    const fadeTimer = setTimeout(() => setExiting(true), 3500);
+    const removeTimer = setTimeout(() => setMounted(false), 4000);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -36,10 +31,14 @@ export default function FirstMountLoad(onFinish) {
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center dark:bg-gray-900 bg-white transition-opacity duration-500 ${
-        visible ? "opacity-100" : "opacity-0"
+        exiting ? "opacity-0" : "opacity-100"
       }`}
     >
-      <LogoTypeOne animate />
+      <div
+        className={`transition-opacity duration-500 ${logoVisible ? "opacity-100" : "opacity-0"}`}
+      >
+        <LogoTypeOne animate />
+      </div>
     </div>
   );
 }
