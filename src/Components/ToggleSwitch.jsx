@@ -1,9 +1,14 @@
 import { cn } from "../utils/CN";
 
+const variants = {
+  primary: "bg-gray-200 dark:bg-blue-900",
+};
+
 export default function ToggleSwitch({
   checked = false,
   onChange,
   disabled = false,
+  variant = "primary",
 }) {
   function handleClick() {
     if (disabled) return;
@@ -18,15 +23,16 @@ export default function ToggleSwitch({
       disabled={disabled}
       onClick={handleClick}
       className={cn(
-        "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-300 bg-gray-200",
+        "relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-300 ",
         disabled ? "cursor-not-allowed" : "cursor-pointer",
+        variants[variant],
       )}
     >
       <span
         className={cn(
           "absolute top-0.5 left-0.5 h-5 w-5 rounded-full transition-all duration-300 transform",
           checked ? "translate-x-full" : "",
-          disabled ? "bg-[#757575]" : "bg-blue-500",
+          disabled ? "bg-[#757575]" : "bg-blue-500 dark:bg-black",
         )}
       />
     </button>

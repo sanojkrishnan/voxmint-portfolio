@@ -16,7 +16,7 @@ export default function ArrowLogo({
     if (animate) {
       const timer = setTimeout(() => {
         setExplodeDot(true);
-      }, 2800); // delay after logo appears
+      }, 2900); // delay after logo appears
 
       return () => clearTimeout(timer);
     }
@@ -35,7 +35,7 @@ export default function ArrowLogo({
 
     const nameTimer = setTimeout(() => {
       setShowName(true);
-    }, 1500);
+    }, 1700);
 
     return () => {
       cancelAnimationFrame(startTimer);
@@ -105,7 +105,9 @@ export default function ArrowLogo({
               className={`animate-bounce logo-dot ${explodeDot ? "explode" : ""}`}
               stroke={color}
               fill={color}
-              d="m 1288.4394,142.63409 c -6.6841,-1.197 -13.7689,-5.25307 -20.0728,-11.49182 -6.8351,-6.76451 -10.9638,-15.164 -12.6015,-25.63696 -3.3836,-21.6376 5.7448,-39.70147 25.2349,-49.93673 4.051,-2.1274 5.797,-2.3656 17.5,-2.38745 12.262,-0.0229 13.3263,0.13591 18.7476,2.79725 8.8281,4.33366 15.7622,11.28193 20.3289,20.3703 l 3.9235,7.80818 v 13 13 l -3.9763,7.91374 c -7.9737,15.86936 -19.6196,24.05803 -35.5237,24.97803 -4.675,0.27044 -10.7773,0.0839 -13.5606,-0.41454 z"
+              d="M1298.5 54.5
+A44 44 0 1 1 1298.5 142.5
+A44 44 0 1 1 1298.5 54.5"
               id="path24"
             />
 
