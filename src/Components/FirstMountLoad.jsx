@@ -30,7 +30,7 @@ export default function FirstMountLoad() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center dark:bg-gray-900 bg-white transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center dark:bg-gray-900 bg-white transition-opacity duration-700 ${
         exiting ? "opacity-0" : "opacity-100"
       }`}
     >

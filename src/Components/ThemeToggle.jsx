@@ -30,7 +30,7 @@ export default function ThemeToggle() {
     }, THEME_TRANSITION_DELAY);
   };
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 z-40">
       <div className="relative max-w-20 max-h-20">
         <button
           onClick={handleClick}
@@ -39,7 +39,7 @@ export default function ThemeToggle() {
         >
           <div
             onAnimationEnd={() => setExploding(false)}
-            className={`theme ${animDark ? "bg-gray-900" : "bg-blue-500"} ${
+            className={`theme ${animDark ? "bg-gray-950" : "bg-blue-500"} ${
               exploding ? "explode" : "opacity-0"
             } absolute inset-0 w-full h-full rounded-full`}
           ></div>

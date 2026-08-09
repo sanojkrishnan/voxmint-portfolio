@@ -47,7 +47,7 @@ export default function ArrowLogo({
   const phase = !animate ? "static" : playing ? "playing" : "pending";
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center z-50">
       <div
         className={`flex items-center justify-center
         ${playing ? "transition-transform duration-1000 ease-in-out" : ""}
