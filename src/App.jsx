@@ -1,13 +1,12 @@
-import FirstMountLoad from "./Components/FirstMountLoad";
-import Header from "./Components/Header";
-import IntroSection from "./Components/IntroSection";
-import Robo3D from "./Components/Robo3D";
+import FirstMountLoad from "./Components/ui/FirstMountLoad";
+import Header from "./Components/ui/Header";
+import IntroSection from "./Components/ui/IntroSection";
+import Robo3D from "./Components/ui/Robo3D";
 
 function App() {
   return (
     <>
       <FirstMountLoad />
-
       <div className="relative w-full h-screen bg-black">
         <Header />
         <div className="w-full h-500"></div>

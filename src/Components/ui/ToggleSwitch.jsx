@@ -1,4 +1,4 @@
-import { cn } from "../utils/CN";
+import { cn } from "../../utils/CN";
 
 const variants = {
   primary: "bg-gray-200 dark:bg-blue-900",

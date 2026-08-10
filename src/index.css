@@ -1,12 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Sekuya&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-
 @import "tailwindcss";
 
+@font-face {
+  font-family: "GC Gatuzo";
+  src: url("./assets/fonts/GCGatuzoDemo-Regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sekuya: "Sekuya", system-ui;
-  --font-play: "Play", sans-serif;
+  --font-sans: "GC Gatuzo", system-ui, sans-serif;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -105,5 +108,37 @@
   100% {
     transform: scale(110);
     opacity: 0;
+  }
+}
+
+.animate-morphy {
+  animation:
+    animateMorphy 1s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    premium-float 2s ease-in-out 1s infinite;
+  will-change: transform, clip-path;
+}
+
+@keyframes animateMorphy {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.02);
+    clip-path: polygon(25% 8%, 90% 10%, 80% 95%, 5% 80%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate3d(-25px, 10px, 0) scale(1);
+    clip-path: polygon(15% 0%, 100% 15%, 75% 100%, 0% 70%);
+    opacity: 1;
+  }
+}
+
+@keyframes premium-float {
+  0%,
+  100% {
+    transform: translate3d(-25px, 10px, 0);
+  }
+
+  50% {
+    transform: translate3d(-25px, 6px, 0);
   }
 }

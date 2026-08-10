@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Spline from "@splinetool/react-spline";
-import gradient from "../assets/gradient.png";
+import gradient from "../../assets/gradient.png";
 import Loader from "./Loader";
 
 export default function Robo3D() {
@@ -8,9 +8,9 @@ export default function Robo3D() {
   const [error, setError] = useState(false);
 
   return (
-    <div className="relative lg:w-1/2 w-full lg:h-screen h-100">
+    <div className="relative lg:w-1/2 w-full lg:h-screen h-150 overflow-visible bg-black">
       <img
-        className="absolute lg:top-0 right-0 opacity-50 -z-1"
+        className="absolute lg:top-0 right-0 opacity-50 "
         src={gradient}
         alt="Gradient Image"
       />
@@ -18,15 +18,13 @@ export default function Robo3D() {
       <div
         className="absolute top-[20%] right-0 w-120 h-0
         dark:shadow-[0_0_700px_15px_rgba(255,255,255,0.5)] shadow-[0_0_700px_15px_rgba(255,255,255,2)]
-        rotate-[-30deg] -z-1"
+        rotate-[-30deg]"
       />
 
       {/* Loading */}
       {loading && !error && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-3">
-            <Loader />
-          </div>
+        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+          <Loader />
         </div>
       )}
 
@@ -52,7 +50,7 @@ export default function Robo3D() {
       )}
 
       {!error && (
-        <>
+        <div className="absolute inset-0 z-10">
           <Spline
             scene="https://prod.spline.design/4HnKtTtuXK4Skh49/scene.splinecode"
             onLoad={() => {
@@ -63,7 +61,7 @@ export default function Robo3D() {
               setError(true);
             }}
           />
-        </>
+        </div>
       )}
     </div>
   );
