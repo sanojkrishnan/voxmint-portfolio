@@ -12,24 +12,27 @@ function IntroSection() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Wait 6s before revealing — e.g. to let a hero loader/3D model finish
-    // first. Adjust START_DELAY_MS below if 6s changes.
-    const START_DELAY_MS = 3900;
-    const timer = setTimeout(() => setMounted(true), START_DELAY_MS);
+    const introShown = sessionStorage.getItem("introShown");
+
+    const START_DELAY_MS = introShown ? 100 : 3900;
+
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, START_DELAY_MS);
+
     return () => clearTimeout(timer);
   }, []);
-
   return (
     <div
       className={`relative lg:w-1/2 w-full lg:h-screen h-fit md:px-25 px-8 pt-30 flex flex-col items-start justify-start `}
     >
-      <div
-        className={`absolute w-6/7 md:w-3/4 md:top-40 top-25 dark:bg-gray-900 animate-bounce bg-blue-500  md:h-60 h-30 ${
+      {/* <div
+        className={`absolute w-6/7 md:w-3/4 md:top-40 top-25 dark:bg-amber-700 bg-blue-500  md:h-60 h-30 ${
           mounted ? "animate-morphy" : "opacity-0"
         }`}
-      />
+      /> */}
       <h1
-        className={` font-extrabold text-white  dark:text-blue-500 md:text-7xl text-5xl lg:leading-25 tracking-wide ${reveal(
+        className={` font-extrabold dark:mix-blend-normal text-white md:text-7xl text-5xl lg:leading-20 tracking-wide ${reveal(
           mounted,
         )}`}
       >
@@ -38,7 +41,7 @@ function IntroSection() {
       </h1>
 
       <p
-        className={`mt-4  mix-blend-difference text-start md:text-3xl text-xl dark:text-white text-blue-500 ${reveal(
+        className={`mt-4  mix-blend-difference text-start md:text-3xl text-xl text-blue-500 ${reveal(
           mounted,
           "delay-150",
         )}`}
@@ -47,7 +50,7 @@ function IntroSection() {
       </p>
 
       <p
-        className={`mix-blend-difference dark:text-gray-300 text-white text-xs mt-10 gap-1 list-disc list-inside md:leading-6 ${reveal(
+        className={`mix-blend-difference text-white text-md mt-10 gap-1 list-disc list-inside md:leading-6 ${reveal(
           mounted,
           "delay-300",
         )}`}
@@ -59,7 +62,6 @@ function IntroSection() {
 
       <div className={reveal(mounted, "delay-500") + "relative"}>
         <Button
-          background="dark"
           className={"mt-10 absolute z-50"}
           onClick={() => console.log("button clicked")}
         >

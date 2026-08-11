@@ -13,11 +13,19 @@ export default function FirstMountLoad() {
 
   useEffect(() => {
     if (alreadyShownRef.current) return;
-    sessionStorage.setItem("introShown", "true");
 
-    const raf = requestAnimationFrame(() => setLogoVisible(true));
-    const fadeTimer = setTimeout(() => setExiting(true), 3500);
-    const removeTimer = setTimeout(() => setMounted(false), 4000);
+    const raf = requestAnimationFrame(() => {
+      setLogoVisible(true);
+    });
+
+    const fadeTimer = setTimeout(() => {
+      setExiting(true);
+    }, 3500);
+
+    const removeTimer = setTimeout(() => {
+      sessionStorage.setItem("introShown", "true");
+      setMounted(false);
+    }, 4000);
 
     return () => {
       cancelAnimationFrame(raf);

@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <FirstMountLoad />
-      <div className="relative w-full h-screen bg-black">
+      <div className="relative w-full h-screen bg-gray-900">
         <Header />
         <div className="w-full h-500"></div>
         <div className="lg:flex absolute block w-full h-screen top-0 right-0 z-1">

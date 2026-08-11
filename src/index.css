@@ -139,6 +139,6 @@
   }
 
   50% {
-    transform: translate3d(-25px, 6px, 0);
+    transform: translate3d(-25px, 4px, 0);
   }
 }

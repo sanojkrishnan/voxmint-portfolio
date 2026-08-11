@@ -43,15 +43,23 @@ const SHAPE_CLASSES = {
 };
 
 const PALETTE = {
-  light: {
-    surface: "#e9edf3",
-    text: "#5b6577",
-    accent: "#2563eb",
-    shadowDark: "rgba(163,177,198,0.55)",
-    shadowLight: "rgba(255,255,255,0.85)",
-  },
+  // light: {
+  //   surface: "#E8E8E3",
+  //   text: "#5b6577",
+  //   accent: "#2563eb",
+  //   shadowDark: "rgba(163,177,198,0.45)",
+  //   shadowLight: "rgba(255,255,255,0.65)",
+  // },
+
   dark: {
-    surface: "#161b26",
+    surface: "#111827", // Tailwind gray-900
+    text: "#8a94a6",
+    accent: "#5eb2ff",
+    shadowDark: "rgba(0,0,0,0.7)",
+    shadowLight: "rgba(255,255,255,0.045)",
+  },
+  light: {
+    surface: "#111827", // remove this if light theme is activating
     text: "#8a94a6",
     accent: "#5eb2ff",
     shadowDark: "rgba(0,0,0,0.7)",
