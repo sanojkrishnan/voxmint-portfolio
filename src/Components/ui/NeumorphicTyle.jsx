@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { cn } from "../../utils/CN";
 
-const animate = `hover:translate-y-0.5 hover:shadow-[inset_5px_5px_10px_rgba(0,0,0,0.65),inset_-5px_-5px_10px_rgba(255,255,255,0.04)]
-  transition-all duration-500`;
+const animate = `hover:translate-y-0.5 hover:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.5),inset_-2px_-2px_5px_rgba(255,255,255,0.02)]
+  transition-all duration-50`;
 
 // hover:shadow-[inset_5px_5px_10px_rgba(163,177,198,0.45),inset_-5px_-5px_10px_rgba(255,255,255,0.7)] - add this if light theme theme needed
 
@@ -10,7 +10,7 @@ const animate = `hover:translate-y-0.5 hover:shadow-[inset_5px_5px_10px_rgba(0,0
 // surface, no elevation yet. Values are matched to the dark shadow below
 // so the handoff from inline style -> Tailwind class is seamless.
 const SUNKEN_SHADOW =
-  "inset 2px 2px 5px rgba(0,0,0,0.5), inset -2px -2px 5px rgba(255,255,255,0.02)";
+  "inset 0px 0px 0px rgba(0,0,0,0.5), inset 0px 0px 0px rgba(255,255,255,0.02) ";
 
 export default function Neumorphic({
   children,
@@ -25,8 +25,16 @@ export default function Neumorphic({
 
   useEffect(() => {
     if (!rise) return;
-    const timeout = setTimeout(() => setRisen(true), 40 + riseDelay);
-    return () => clearTimeout(timeout);
+    let raf1, raf2;
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
+        setTimeout(() => setRisen(true), riseDelay);
+      });
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [rise, riseDelay]);
 
   // Only override with inline styles while the entrance animation is
@@ -56,11 +64,11 @@ export default function Neumorphic({
         // "shadow-[10px_10px_20px_rgba(163,177,198,0.55),-10px_-10px_20px_rgba(255,255,255,0.8)]",
 
         // Dark neumorphic shadows
-        "shadow-[10px_10px_20px_rgba(0,0,0,0.65),-10px_-10px_20px_rgba(255,255,255,0.03)]",
+        "shadow-[2px_2px_5px_rgba(0,0,0,0.5),-2px_-2px_5px_rgba(255,255,255,0.02)]",
 
         // Smooth interaction
         "transition-all duration-300 ease-out",
-        rise && !risen && "duration-700", // slower, weightier feel for the rise-in
+        rise && "duration-700",
 
         //hover animation
         hover === "animate" && animate,

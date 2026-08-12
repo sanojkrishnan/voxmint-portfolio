@@ -3,10 +3,8 @@ function Loader() {
     <div>
       <div className="text-gray-400 w-fit h-full flex items-center justify-center">
         <svg
-          className="w-fit h-fit rounded-full animate-spin [animation-duration:3s]"
+          className="md:w-16 w-10 h-10 md:h-16 rounded-full animate-spin [animation-duration:3s]"
           xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -31,10 +29,8 @@ function Loader() {
         </svg>
         <div className="pt-5">
           <svg
-            className="animate-spin [animation-duration:1.5s] [animation-direction:reverse]"
+            className="md:w-8 w-5 h-5 md:h-8 animate-spin [animation-duration:1.5s] [animation-direction:reverse]"
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

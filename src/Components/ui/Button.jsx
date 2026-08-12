@@ -61,7 +61,7 @@ const PALETTE = {
   light: {
     surface: "#111827", // remove this if light theme is activating
     text: "#8a94a6",
-    accent: "#5eb2ff",
+    accent: "#ffffff",
     shadowDark: "rgba(0,0,0,0.7)",
     shadowLight: "rgba(255,255,255,0.045)",
   },
@@ -94,6 +94,7 @@ export default function Button({
   className,
   onClick,
   type = "button",
+  transparent = false,
   ...props
 }) {
   const [pressed, setPressed] = useState(false);
@@ -119,12 +120,12 @@ export default function Button({
       className={cn(
         "inline-flex items-center justify-center gap-2",
         "font-semibold tracking-wide transition-all duration-300 ease-out",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60 cursor-pointer",
         SHAPE_CLASSES[shape],
         className,
       )}
       style={{
-        backgroundColor: p.surface,
+        backgroundColor: transparent ? transparent : p.surface,
         color: isPrimary ? p.accent : p.text,
         boxShadow: pressed ? pressedShadow : raised,
         transform: pressed ? "translateY(1px) scale(0.99)" : "translateY(0)",

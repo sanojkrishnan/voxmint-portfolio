@@ -24,7 +24,7 @@ function IntroSection() {
   }, []);
   return (
     <div
-      className={`relative lg:w-1/2 w-full lg:h-screen h-fit md:px-25 px-8 pt-30 flex flex-col items-start justify-start `}
+      className={`relative lg:w-1/2 w-full md:h-screen h-fit lg:px-25 px-8 pt-25 flex flex-col items-start justify-start `}
     >
       {/* <div
         className={`absolute w-6/7 md:w-3/4 md:top-40 top-25 dark:bg-amber-700 bg-blue-500  md:h-60 h-30 ${
@@ -32,7 +32,7 @@ function IntroSection() {
         }`}
       /> */}
       <h1
-        className={` font-extrabold dark:mix-blend-normal text-white md:text-7xl text-5xl lg:leading-20 tracking-wide ${reveal(
+        className={` font-extrabold dark:mix-blend-normal text-white lg:text-7xl text-5xl md:leading-20 tracking-wide ${reveal(
           mounted,
         )}`}
       >
@@ -41,7 +41,7 @@ function IntroSection() {
       </h1>
 
       <p
-        className={`mt-4  mix-blend-difference text-start md:text-3xl text-xl text-blue-500 ${reveal(
+        className={`mt-4  mix-blend-difference text-start lg:text-3xl text-xl text-blue-500 ${reveal(
           mounted,
           "delay-150",
         )}`}
@@ -55,14 +55,24 @@ function IntroSection() {
           "delay-300",
         )}`}
       >
-        ● Digital Marketing&nbsp; ● Creative Designs&nbsp; ● Content
-        Creation&nbsp; ● High-end Website Development And Management&nbsp; ●
-        Search Engine Optimization&nbsp; ● Social Media Management
+        ● Digital Marketing&nbsp;&nbsp;&nbsp; ● Creative
+        Designs&nbsp;&nbsp;&nbsp; ● Content Creation&nbsp;&nbsp; ● High-end
+        Website Development And Management&nbsp;&nbsp;&nbsp; ● Search Engine
+        Optimization&nbsp;&nbsp;&nbsp; ● Social Media Management
       </p>
 
       <div className={reveal(mounted, "delay-500") + "relative"}>
         <Button
-          className={"mt-10 absolute z-50"}
+          transparent
+          className="
+    mt-10 absolute z-50
+    text-blue-400 font-medium
+    border border-blue-400/30
+    transition-all duration-300 ease-out
+    hover:border-blue-500
+    hover:-translate-y-0.5
+    hover:shadow-[0_8px_20px_rgba(59,130,246,0.4)]
+  "
           onClick={() => console.log("button clicked")}
         >
           Contact Us
