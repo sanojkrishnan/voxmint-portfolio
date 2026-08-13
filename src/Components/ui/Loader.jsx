@@ -1,7 +1,7 @@
 function Loader() {
   return (
     <div>
-      <div className="text-gray-400 w-fit h-full flex items-center justify-center">
+      <div className="text-gray-200 w-fit h-full flex items-center justify-center">
         <svg
           className="md:w-16 w-10 h-10 md:h-16 rounded-full animate-spin [animation-duration:3s]"
           xmlns="http://www.w3.org/2000/svg"

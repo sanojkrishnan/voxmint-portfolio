@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { cn } from "../../utils/CN";
 
-const animate = `hover:translate-y-0.5 hover:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.5),inset_-2px_-2px_5px_rgba(255,255,255,0.02)]
+const animate = `active:translate-y-0.5 active:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.5),inset_-2px_-2px_5px_rgba(255,255,255,0.02)]
   transition-all duration-50`;
 
-// hover:shadow-[inset_5px_5px_10px_rgba(163,177,198,0.45),inset_-5px_-5px_10px_rgba(255,255,255,0.7)] - add this if light theme theme needed
+// active:shadow-[inset_5px_5px_10px_rgba(163,177,198,0.45),inset_-5px_-5px_10px_rgba(255,255,255,0.7)] - add this if light theme theme needed
 
 // Flat/sunken starting point for the rise-in animation — flush with the
 // surface, no elevation yet. Values are matched to the dark shadow below
@@ -16,7 +16,7 @@ export default function Neumorphic({
   children,
   className = "",
   as: Component = "div",
-  hover = "animate",
+  active = "animate",
   rise = false, // opt-in: play a "rising from the surface" entrance animation on mount
   riseDelay = 0, // ms, useful for staggering a grid/list of tiles
 }) {
@@ -39,7 +39,7 @@ export default function Neumorphic({
 
   // Only override with inline styles while the entrance animation is
   // actually running. Once risen, fall back to the normal Tailwind classes
-  // below so hover / everything else behaves exactly as it did before.
+  // below so active / everything else behaves exactly as it did before.
   const entranceStyle =
     rise && !risen
       ? {
@@ -70,8 +70,8 @@ export default function Neumorphic({
         "transition-all duration-300 ease-out",
         rise && "duration-700",
 
-        //hover animation
-        hover === "animate" && animate,
+        //active animation
+        active === "animate" && animate,
         className,
       )}
       style={entranceStyle}

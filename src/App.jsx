@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <FirstMountLoad />
-      <div className="relative w-full min-h-screen bg-linear-to-br from-black via-blue-950 to-black">
+      <div className="relative w-full min-h-fit bg-linear-to-br from-black via-blue-950 to-black">
         <Header />
         <div className="w-fit p-6 pl-8">
           <LogoTypeOne size={30} animate={false} color="#3D5AA8" />
@@ -23,7 +23,7 @@ function App() {
         {/* On mobile: normal flex flow, natural height, content stacks and
             grows the parent. On desktop (md+): switch to absolute + h-screen
             for the layered hero layout you already had. */}
-        <div className="flex flex-col md:flex-row md:w-full ">
+        <div className="flex flex-col md:flex-row md:w-full h-fit">
           <IntroSection />
           <Robo3D />
         </div>

@@ -13,8 +13,7 @@ import { FaGithub } from "react-icons/fa6";
 
 export default function Robo3D() {
   return (
-    <div className="relative lg:w-1/2 w-full flex items-center justify-center lg:h-screen h-150 overflow-visible">
-     
+    <div className="relative lg:w-1/2 w-full flex items-center justify-center md:h-[90.5vh] h-150 overflow-visible">
       <div className="grid grid-cols-1 place-items-center-safe gap-10">
         <p className="text-white text-xl">Reach Us Here </p>
 
@@ -50,14 +49,14 @@ export default function Robo3D() {
             <SiYoutube className="text-gray-400 size-8" />
           </Neumorphic>
 
-          <Neumorphic
-            className="w-fit bg-transparent"
-            hover="none"
+          <div
+            className="w-fit p-4 bg-transparent"
+            active="none"
             rise
             riseDelay={800}
           >
             <Loader />
-          </Neumorphic>
+          </div>
           <Neumorphic
             className="bg-transparent cursor-pointer lg:w-22 lg:h-22 w-17 h-17 flex items-center justify-center  "
             rise

@@ -24,7 +24,7 @@ function IntroSection() {
   }, []);
   return (
     <div
-      className={`relative lg:w-1/2 w-full md:h-screen h-fit lg:px-25 px-8 pt-25 flex flex-col items-start justify-start `}
+      className={`relative lg:w-1/2 w-full md:h-[70vh] h-fit lg:px-25 px-8 pt-25 flex flex-col items-start justify-start `}
     >
       {/* <div
         className={`absolute w-6/7 md:w-3/4 md:top-40 top-25 dark:bg-amber-700 bg-blue-500  md:h-60 h-30 ${
